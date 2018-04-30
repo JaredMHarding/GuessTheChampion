@@ -12,6 +12,7 @@
 		3222C5722097D8B300A0C7E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3222C5702097D8B300A0C7E8 /* Main.storyboard */; };
 		3222C5742097D8B300A0C7E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3222C5732097D8B300A0C7E8 /* Assets.xcassets */; };
 		3222C5772097D8B300A0C7E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3222C5752097D8B300A0C7E8 /* LaunchScreen.storyboard */; };
+		3222C57F2097D99100A0C7E8 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222C57E2097D99100A0C7E8 /* Champion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3222C5732097D8B300A0C7E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3222C5762097D8B300A0C7E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3222C5782097D8B300A0C7E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3222C57E2097D99100A0C7E8 /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				3222C56C2097D8B300A0C7E8 /* AppDelegate.swift */,
 				3222C56E2097D8B300A0C7E8 /* ViewController.swift */,
 				3222C5702097D8B300A0C7E8 /* Main.storyboard */,
+				3222C57E2097D99100A0C7E8 /* Champion.swift */,
 				3222C5732097D8B300A0C7E8 /* Assets.xcassets */,
 				3222C5752097D8B300A0C7E8 /* LaunchScreen.storyboard */,
 				3222C5782097D8B300A0C7E8 /* Info.plist */,
@@ -138,6 +141,7 @@
 			files = (
 				3222C56F2097D8B300A0C7E8 /* ViewController.swift in Sources */,
 				3222C56D2097D8B300A0C7E8 /* AppDelegate.swift in Sources */,
+				3222C57F2097D99100A0C7E8 /* Champion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
