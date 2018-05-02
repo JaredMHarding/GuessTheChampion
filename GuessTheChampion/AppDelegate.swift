@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var game: GuessTheChampion?
-    var rounds: Int = 10
+    var rounds: Int = 4
+    lazy var champions: [String] = getChampions() // accessing this in other code will get a copy, not a reference
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -41,7 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    private func getChampions() -> [String] {
+        guard let url = Bundle.main.url(forResource: "champions", withExtension: "plist") else { return [] }
+        guard let data = try? Data(contentsOf: url) else {return [] }
+        guard let array = try? PropertyListDecoder().decode([String].self, from: data) else { return [] }
+        return array
+    }
 
 }
 

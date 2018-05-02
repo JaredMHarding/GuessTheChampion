@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct GuessTheChampion {
+public class GuessTheChampion {
     
     public enum difficulty {
         case easy, hard
@@ -16,6 +16,7 @@ public struct GuessTheChampion {
     
     // instance variables
     private var score: Int
+    private var roundCounter: Int
     private var answers: [String]
     private var choices: [[String]]?
     private var difficulty: difficulty
@@ -23,6 +24,7 @@ public struct GuessTheChampion {
     // in easy mode you have choices
     init(answers: [String], choices: [[String]]) {
         self.score = 0
+        self.roundCounter = 0
         self.answers = answers
         self.choices = choices
         self.difficulty = .easy
@@ -31,18 +33,39 @@ public struct GuessTheChampion {
     // in hard mode you don't have choices, it's just a text box
     init(answers: [String]) {
         self.score = 0
+        self.roundCounter = 0
         self.answers = answers
         self.choices = nil
         self.difficulty = .hard
     }
     
-    public func isCorrect(forRound r: Int, forString s: String) -> Bool {
-        return answers[r] == s
+    public func isCorrect(forString s: String) -> Bool {
+        // sanitize the string
+        let cleanString = s.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "_").lowercased()
+        return (answers[roundCounter] == cleanString)
     }
     
     public func incrementScore() {
         score += 1
     }
     
+    public func incrementRound() {
+        roundCounter += 1
+    }
     
+    public func getScore() -> Int {
+        return score
+    }
+    
+    public func getRound() -> Int {
+        return roundCounter
+    }
+    
+    public func getAnswer() -> String {
+        return answers[roundCounter]
+    }
+    
+    public func getDifficulty() -> difficulty {
+        return self.difficulty
+    }
 }

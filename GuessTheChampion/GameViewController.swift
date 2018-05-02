@@ -29,12 +29,26 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // change the picture (and maybe the options) to match the specific round
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let game = appDelegate.game!
+        loadImage(ofChampion: game.getAnswer(), isBlank: true)
+        if (game.getDifficulty() == .easy) {
+            // set up the buttons for the easy games
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadImage(ofChampion c: String, isBlank b: Bool) {
+        var filename = "\(c)250"
+        if (b) {
+            filename.append("b")
+        }
+        imageView.image = UIImage(named: filename)
     }
     
     /*
