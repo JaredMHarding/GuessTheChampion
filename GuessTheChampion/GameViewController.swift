@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // add stuff after
+        // change the picture (and maybe the options) to match the specific round
         
     }
 

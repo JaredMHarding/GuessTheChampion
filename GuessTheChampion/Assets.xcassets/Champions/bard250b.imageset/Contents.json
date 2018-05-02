@@ -1,7 +1,9 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "bard250b.png",
+      "scale" : "1x"
     }
   ],
   "info" : {

@@ -21,8 +21,10 @@ class TitleViewController: UIViewController {
     }
     
     @IBAction func startGame(_ sender: UIButton) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if (sender.tag == 1) {
             // Easy was selected
+            
             performSegue(withIdentifier: "titleToEasyGame", sender: self)
         } else if (sender.tag == 2) {
             // Hard was selected
@@ -34,4 +36,3 @@ class TitleViewController: UIViewController {
         // doesn't need to do anything
     }
 }
-
