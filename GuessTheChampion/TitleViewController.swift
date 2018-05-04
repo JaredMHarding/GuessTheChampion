@@ -9,6 +9,8 @@
 import UIKit
 
 class TitleViewController: UIViewController {
+    // just a global reference to the appDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,21 +23,21 @@ class TitleViewController: UIViewController {
     }
     
     @IBAction func startGame(_ sender: UIButton) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let answers = getRandomChampions(amount: appDelegate.rounds)
         if (sender.tag == 1) {
             // Easy was selected
-            
+            let choices = getRandomChoices(answers: answers)
+            appDelegate.game = GuessTheChampion(answers: answers, choices: choices)
             performSegue(withIdentifier: "titleToEasyGame", sender: self)
         } else if (sender.tag == 2) {
             // Hard was selected
-            appDelegate.game = GuessTheChampion(answers: getRandomChampionsHard(amount: appDelegate.rounds))
+            appDelegate.game = GuessTheChampion(answers: answers)
             performSegue(withIdentifier: "titleToHardGame", sender: self)
         }
     }
     
-    func getRandomChampionsHard(amount: Int) -> [String] {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        var champions = appDelegate.champions
+    func getRandomChampions(amount: Int) -> [String] {
+        var champions = appDelegate.allChampions
         var randomChampions: [String] = []
         for _ in 0..<amount {
             let randNum = Int(arc4random_uniform(UInt32(champions.count)))
@@ -45,7 +47,25 @@ class TitleViewController: UIViewController {
         return randomChampions
     }
     
-    @IBAction func unwindFunction(unwindSegue: UIStoryboardSegue) {
+    func getRandomChoices(answers: [String]) -> [[String]] {
+        var randomChoices: [[String]] = []
+        // we are just going to add the choices in order
+        for i in 0..<answers.count {
+            randomChoices.append([])
+            randomChoices[i].append(answers[i])
+            var champions = appDelegate.allChampions
+            // remove the answer champion first, so it can't be picked as another option
+            champions = champions.filter {$0 != answers[i]}
+            // fill in the other 3 options randomly
+            for _ in 1..<4 {
+                let randNum = Int(arc4random_uniform(UInt32(champions.count)))
+                randomChoices[i].append(champions.remove(at: randNum))
+            }
+        }
+        return randomChoices
+    }
+    
+    @IBAction func unwind(unwindSegue: UIStoryboardSegue) {
         // doesn't need to do anything
     }
 }

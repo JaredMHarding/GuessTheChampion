@@ -95,35 +95,53 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YO-NJ-Uu8">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qVG-Q9-OBD">
                                 <rect key="frame" x="0.0" y="591" width="375" height="76"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YO-NJ-Uu8">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="76"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitPressed:" destination="dS7-5o-KDb" eventType="touchUpInside" id="dxS-mS-DsA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1b-EX-lB5">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="76"/>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextPressed:" destination="dS7-5o-KDb" eventType="touchUpInside" id="5id-at-BEj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="xw9-E7-wBh"/>
+                                    <constraint firstAttribute="height" constant="76" id="dFD-in-e77"/>
                                 </constraints>
-                                <state key="normal" title="Submit"/>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZlJ-4H-WBk" firstAttribute="leading" secondItem="Ahc-Ve-TZ3" secondAttribute="leading" id="3Qw-4w-qnO"/>
-                            <constraint firstItem="Ahc-Ve-TZ3" firstAttribute="trailing" secondItem="wTC-ge-gIh" secondAttribute="trailing" constant="40" id="7K0-ak-L42"/>
-                            <constraint firstItem="9YO-NJ-Uu8" firstAttribute="bottom" secondItem="Ahc-Ve-TZ3" secondAttribute="bottom" id="CCX-Qu-p1A"/>
-                            <constraint firstItem="9YO-NJ-Uu8" firstAttribute="trailing" secondItem="Ahc-Ve-TZ3" secondAttribute="trailing" id="CsI-Iu-z8U"/>
+                            <constraint firstItem="wTC-ge-gIh" firstAttribute="trailing" secondItem="Ahc-Ve-TZ3" secondAttribute="trailing" constant="-40" id="7K0-ak-L42"/>
+                            <constraint firstItem="qVG-Q9-OBD" firstAttribute="leading" secondItem="Ahc-Ve-TZ3" secondAttribute="leading" id="9x8-wp-1cR"/>
+                            <constraint firstItem="Ahc-Ve-TZ3" firstAttribute="bottom" secondItem="qVG-Q9-OBD" secondAttribute="bottom" id="WXB-1L-Pad"/>
                             <constraint firstItem="wTC-ge-gIh" firstAttribute="top" secondItem="ZlJ-4H-WBk" secondAttribute="bottom" constant="40" id="ZTW-9d-sMA"/>
+                            <constraint firstItem="Ahc-Ve-TZ3" firstAttribute="trailing" secondItem="qVG-Q9-OBD" secondAttribute="trailing" id="hjh-0A-V3P"/>
                             <constraint firstItem="wTC-ge-gIh" firstAttribute="leading" secondItem="Ahc-Ve-TZ3" secondAttribute="leading" constant="40" id="jDE-pE-p6E"/>
                             <constraint firstItem="ZlJ-4H-WBk" firstAttribute="trailing" secondItem="Ahc-Ve-TZ3" secondAttribute="trailing" id="nBP-fM-UBi"/>
                             <constraint firstItem="ZlJ-4H-WBk" firstAttribute="top" secondItem="Ahc-Ve-TZ3" secondAttribute="top" id="tRQ-bk-Ss8"/>
-                            <constraint firstItem="9YO-NJ-Uu8" firstAttribute="leading" secondItem="Ahc-Ve-TZ3" secondAttribute="leading" id="vXy-p2-jMs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ahc-Ve-TZ3"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="ZlJ-4H-WBk" id="23O-g6-AAv"/>
+                        <outlet property="nextButton" destination="W1b-EX-lB5" id="jG0-t1-Ns3"/>
                         <outlet property="submitButton" destination="9YO-NJ-Uu8" id="fIF-as-aOA"/>
                         <outlet property="textField" destination="wTC-ge-gIh" id="gAL-y4-92h"/>
+                        <segue destination="s62-NJ-fOB" kind="unwind" identifier="gameToTitle" unwindAction="unwindWithUnwindSegue:" id="iec-ym-MmR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TEZ-5N-W6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="s62-NJ-fOB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1215.2" y="425.93703148425789"/>
         </scene>
@@ -152,12 +170,18 @@
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Option 1"/>
+                                                <connections>
+                                                    <action selector="optionPressed:" destination="BKQ-OZ-flY" eventType="touchUpInside" id="cbV-fE-pfJ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFF-oj-U5U">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="76"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Option 2"/>
+                                                <connections>
+                                                    <action selector="optionPressed:" destination="BKQ-OZ-flY" eventType="touchUpInside" id="UYv-8D-0TH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -169,19 +193,40 @@
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Option 3"/>
+                                                <connections>
+                                                    <action selector="optionPressed:" destination="BKQ-OZ-flY" eventType="touchUpInside" id="Uij-U4-jsl"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-L9-bR9">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="76"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Option 4"/>
+                                                <connections>
+                                                    <action selector="optionPressed:" destination="BKQ-OZ-flY" eventType="touchUpInside" id="5of-Qv-uqr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uF-sq-Jit">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vZ5-eO-iZB" userLabel="Row 2">
                                         <rect key="frame" x="0.0" y="152" width="375" height="76"/>
-                                        <state key="normal" title="Submit"/>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uF-sq-Jit">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="76"/>
+                                                <state key="normal" title="Submit"/>
+                                                <connections>
+                                                    <action selector="submitPressed:" destination="BKQ-OZ-flY" eventType="touchUpInside" id="B7h-X0-b7X"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBc-zb-yv5">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="76"/>
+                                                <state key="normal" title="Next"/>
+                                                <connections>
+                                                    <action selector="nextPressed:" destination="BKQ-OZ-flY" eventType="touchUpInside" id="Bba-5u-6Xg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -199,15 +244,17 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="hwf-BE-thY" id="GRi-sS-bVl"/>
-                        <outlet property="option1Button" destination="96w-11-IQz" id="bNo-Pf-EE1"/>
-                        <outlet property="option2Button" destination="oFF-oj-U5U" id="sSn-eS-bFk"/>
-                        <outlet property="option3Button" destination="kt7-wG-496" id="Aoa-v0-G1B"/>
-                        <outlet property="option4Button" destination="Lsg-L9-bR9" id="MeB-sR-80y"/>
+                        <outlet property="nextButton" destination="aBc-zb-yv5" id="S9U-7T-Gfo"/>
+                        <outlet property="option1Button" destination="96w-11-IQz" id="AOk-ZJ-wO0"/>
+                        <outlet property="option2Button" destination="oFF-oj-U5U" id="5Dw-KM-b7z"/>
+                        <outlet property="option3Button" destination="kt7-wG-496" id="6AE-a2-cXq"/>
+                        <outlet property="option4Button" destination="Lsg-L9-bR9" id="0XT-mt-FgW"/>
                         <outlet property="submitButton" destination="6uF-sq-Jit" id="upZ-2g-nb2"/>
-                        <outlet property="test" destination="7Uu-4F-V24" id="WEW-fr-9XL"/>
+                        <segue destination="TkG-6D-Iag" kind="unwind" identifier="gameToTitle" unwindAction="unwindWithUnwindSegue:" id="IA4-aO-WQg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUb-qq-fat" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TkG-6D-Iag" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1218" y="-332"/>
         </scene>

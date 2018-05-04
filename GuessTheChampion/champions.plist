@@ -6,5 +6,54 @@
 	<string>aurelion_sol</string>
 	<string>azir</string>
 	<string>bard</string>
+	<string>blitzcrank</string>
+	<string>braum</string>
+	<string>caitlyn</string>
+	<string>camille</string>
+	<string>cho_gath</string>
+	<string>darius</string>
+	<string>diana</string>
+	<string>dr_mundo</string>
+	<string>ekko</string>
+	<string>evelynn</string>
+	<string>ezreal</string>
+	<string>fiddlesticks</string>
+	<string>fiora</string>
+	<string>fizz</string>
+	<string>gnar</string>
+	<string>gragas</string>
+	<string>graves</string>
+	<string>illaoi</string>
+	<string>jinx</string>
+	<string>kai_sa</string>
+	<string>kalista</string>
+	<string>karma</string>
+	<string>kayn</string>
+	<string>kha_zix</string>
+	<string>kindred</string>
+	<string>lee_sin</string>
+	<string>leona</string>
+	<string>lulu</string>
+	<string>lux</string>
+	<string>malzahar</string>
+	<string>master_yi</string>
+	<string>miss_fortune</string>
+	<string>morgana</string>
+	<string>nami</string>
+	<string>nasus</string>
+	<string>nautilus</string>
+	<string>nidalee</string>
+	<string>nunu</string>
+	<string>poppy</string>
+	<string>rengar</string>
+	<string>riven</string>
+	<string>sejuani</string>
+	<string>syndra</string>
+	<string>teemo</string>
+	<string>twisted_fate</string>
+	<string>vi</string>
+	<string>zed</string>
+	<string>ziggs</string>
+	<string>zoe</string>
 </array>
 </plist>

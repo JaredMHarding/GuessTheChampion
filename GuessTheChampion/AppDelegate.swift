@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var game: GuessTheChampion?
-    var rounds: Int = 4
-    lazy var champions: [String] = getChampions() // accessing this in other code will get a copy, not a reference
+    var rounds: Int = 10 // default value
+    lazy var allChampions: [String] = getChampions() // accessing this in other code will get a copy, not a reference
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

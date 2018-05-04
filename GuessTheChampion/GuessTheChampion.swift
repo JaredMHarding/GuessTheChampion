@@ -41,7 +41,7 @@ public class GuessTheChampion {
     
     public func isCorrect(forString s: String) -> Bool {
         // sanitize the string
-        let cleanString = s.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "_").lowercased()
+        let cleanString = s.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "_").replacingOccurrences(of: "\'", with: "_").lowercased()
         return (answers[roundCounter] == cleanString)
     }
     
@@ -65,7 +65,20 @@ public class GuessTheChampion {
         return answers[roundCounter]
     }
     
+    public func getChoices() -> [String] {
+        return choices![roundCounter]
+    }
+    
     public func getDifficulty() -> difficulty {
         return self.difficulty
+    }
+    
+    public func getResponse() -> String {
+        let ratio = Double(score) / Double(answers.count)
+        if (ratio < 0.5) { return "Terrible... Keep practicing." }
+        else if (ratio < 0.8) { return "You're getting there. Try again." }
+        else if (ratio < 1.0) { return "Great job! Surely next time you could get a perfect score?" }
+        else if (ratio == 1.0) { return "Wow!! You got a perfect score!" }
+        else { return "What scorcery is this???" }
     }
 }
