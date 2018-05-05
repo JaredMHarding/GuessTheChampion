@@ -65,6 +65,27 @@ class TitleViewController: UIViewController {
         return randomChoices
     }
     
+    @IBAction func roundsPressed(_ sender: UIBarButtonItem) {
+        let max = appDelegate.allChampions.count
+        let alert = UIAlertController(title: "Enter the number of rounds you would like.",
+        message: "Must be a number from 5 to \(max)",
+        preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = "\(String(self.appDelegate.rounds))"
+        }
+        alert.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            let roundAmount = Int(textField.text!)
+            if ((roundAmount == nil) || (roundAmount! < 5) || (roundAmount! > max)) {
+                // set it to the default value
+                self.appDelegate.rounds = 10
+            } else {
+                self.appDelegate.rounds = roundAmount!
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func unwind(unwindSegue: UIStoryboardSegue) {
         // doesn't need to do anything
     }

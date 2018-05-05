@@ -65,7 +65,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HlN-bb-r1L"/>
+                    <navigationItem key="navigationItem" id="HlN-bb-r1L">
+                        <barButtonItem key="rightBarButtonItem" title="Rounds" id="Zzh-nu-IaB">
+                            <connections>
+                                <action selector="roundsPressed:" destination="BYZ-38-t0r" id="UD8-OC-buk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="BKQ-OZ-flY" kind="show" identifier="titleToEasyGame" id="6PU-kW-DX8"/>
                         <segue destination="dS7-5o-KDb" kind="show" identifier="titleToHardGame" id="W9q-li-6Be"/>
