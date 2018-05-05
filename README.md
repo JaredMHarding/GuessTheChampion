@@ -1,10 +1,11 @@
-###Jared Harding
-###jared.harding@wsu.edu
-###May 4th, 2018
+### Jared Harding
 
-#CS458 Final Project - Guess The Champion Game
+### jared.harding@wsu.edu
+### May 4th, 2018
 
-##Description
+# CS458 Final Project - Guess The Champion Game
+
+## Description
 
 This is a simple game made with the native UIKit in Swift.
 This game is mainly for people who play the game League of Legends.
@@ -13,7 +14,7 @@ The goal is to select the correct option or type in the correct answer into the 
 There are no special dependancies or any additional set up work necessary to run this game.
 Treat this like any of the other UIKit apps we've made this semester.
 
-##Acknowledgements
+## Acknowledgements
 
 Characters and original images were made by Riot Games.
 
